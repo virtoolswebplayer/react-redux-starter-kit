@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-starter-kit",
+  "name": "PROJECT_DASHED_NAME",
   "version": "1.0.0",
-  "description": "Get started with React, Redux, and React-Router!",
+  "description": "Your new project",
   "main": "index.js",
   "engines": {
     "node": ">=4.2.0",
@@ -20,7 +20,8 @@
     "test:dev": "npm run test -- --watch",
     "deploy": "better-npm-run deploy",
     "flow:check": "babel-node bin/flow-check",
-    "codecov": "cat coverage/*/lcov.info | codecov"
+    "codecov": "cat coverage/*/lcov.info | codecov",
+    "make:project": "babel-node bin/make-project"
   },
   "betterScripts": {
     "compile": {
@@ -141,6 +142,7 @@
     "redux-devtools": "^3.0.0",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.1",
+    "replace": "^0.3.0",
     "rimraf": "^2.5.1",
     "sass-loader": "^3.0.0",
     "sinon": "^1.17.3",
