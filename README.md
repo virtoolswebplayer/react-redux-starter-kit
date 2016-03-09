@@ -35,7 +35,7 @@ Requirements
 * node `^4.2.0`
 * npm `^3.0.0`
 
-Features
+功能及特点
 --------
 
 * [React](https://github.com/facebook/react) (`^0.14.0`)
@@ -114,55 +114,53 @@ Before delving into the descriptions of each available npm script, here's a brie
 * `npm run compile` - 编译应用到`dist`目录 (`~/dist` by default).
 * `npm run dev` - 和 `npm start` 效果相同, 但是它会启动 `nodeman` 来监听服务器端的代码改动,并自动重启server
 * `npm run dev:nw` - 和 `npm run dev` 效果相同, 另外会在一个新窗口打开 `redux devtools`
-* `npm run dev:no-debug` - Same as `npm run dev` but disables redux devtools.
-* `npm run test` - Runs unit tests with Karma and generates a coverage report.
-* `npm run test:dev` - Runs Karma and watches for changes to re-run tests; does not generate coverage reports.
-* `npm run deploy`- Runs linter, tests, and then, on success, compiles your application to disk.
-* `npm run lint`- Lint all `.js` files.
-* `npm run lint:fix` - Lint and fix all `.js` files. [Read more on this](http://eslint.org/docs/user-guide/command-line-interface.html#fix).
+* `npm run dev:no-debug` - 和 `npm run dev` 效果相同，但不启用`redux devtools`
+* `npm run test` -运行Karma单元测试并且生成代码覆盖报告
+* `npm run test:dev` - 运行Karma单元测试并监听测试代码变化,如有变化会重新启动测试; 不生成代码覆盖率报告.
+* `npm run deploy`- 运行 代码质量、单元测试, 测试通过以后, compiles your application to disk.
+* `npm run lint`- 对所有 `.js` 文件进行代码规则检测.
+* `npm run lint:fix` - 检测代码并尝试修复 `.js` . [请查看这篇文章](http://eslint.org/docs/user-guide/command-line-interface.html#fix).
 
-**NOTE:** Deploying to a specific environment? Make sure to specify your target `NODE_ENV` so webpack will use the correct configuration. For example: `NODE_ENV=production npm run compile` will compile your application with `~/build/webpack/_production.js`.
+**注间:** 部署到指定环境时，务必要指定`NODE_ENV`环境变量 ,只有指定了`NODE_ENV` webpack 才会使用正确的配置. 例如: `NODE_ENV=production npm run compile` 会编译应用程序并且将编译后的`_production.js` 保存到 `~/build/webpack/_production.js`.
 
-### Configuration
+### 配置
 
-Basic project configuration can be found in `~/config/_base.js`. Here you'll be able to redefine your `src` and `dist` directories, adjust compilation settings, tweak your vendor dependencies, and more. For the most part, you should be able to make changes in here **without ever having to touch the webpack build configuration**. If you need environment-specific overrides, create a file with the name of target `NODE_ENV` prefixed by an `_` in `~/config` (see `~/config/_production.js` for an example).
+项目的基础配置 `~/config/_base.js`. 你可重新定义 `src`目录 和 `dist` 目录, 调整编译选项, tweak your vendor dependencies, 等等. 一般情况下, 你可以做一些修改s in here **without ever having to touch the webpack build configuration**. 如果你想增加一个新的环境, 你可创建一个以该环境名称命名的文件，并指定 `NODE_ENV` 添加一个前缀 `_` in `~/config` (see `~/config/_production.js` for an example).
 
-Common configuration options:
+通用配置选项:
 
-* `dir_src` - application source code base path
-* `dir_dist` - path to build compiled application to
-* `server_host` - hostname for the Koa server
-* `server_port` - port for the Koa server
+* `dir_src` - 应用的源码目录
+* `dir_dist` - 编译之后的存放目录
+* `server_host` - koa Server 的主机名或ip地址
+* `server_port` - Koa server 的服务端口
 * `compiler_css_modules` - whether or not to enable CSS modules
 * `compiler_devtool` - what type of source-maps to generate (set to `false`/`null` to disable)
-* `compiler_vendor` - packages to separate into to the vendor bundle
+* `compiler_vendor` - 对第三方库进行拆分打包
 
-Structure
+目录结构
 ---------
-
-The folder structure provided is only meant to serve as a guide, it is by no means prescriptive. It is something that has worked very well for me and my team, but use only what makes sense to you.
 
 ```
 .
-├── bin                      # Build/Start scripts
-├── build                    # All build-related configuration
+├── bin                      # 构建/启动 脚本
+├── build                    # 所有的构建
 │   └── webpack              # Environment-specific configuration files for webpack
-├── config                   # Project configuration settings
-├── server                   # Koa application (uses webpack middleware)
-│   └── main.js              # Server application entry point
-├── src                      # Application source code
-│   ├── components           # Generic React Components (generally Dumb components)
-│   ├── containers           # Components that provide context (e.g. Redux Provider)
-│   ├── layouts              # Components that dictate major page structure
+├── config                   # 项目配置
+├── server                   # Koa 服务程序 (使用 webpack middleware 中间件)
+│   └── main.js              # 服务端程序的入口点
+├── src                      # 整个应用程序的源码目录
+│   ├── components           # 常规的 React 组件 (generally Dumb components)
+│   ├── containers           # 可以提供上下文环境的组件 (比如. Redux Provider)
+│   ├── layouts              # 可以完成网页布局结构的组件
 │   ├── redux                # Redux-specific pieces
-│   │   ├── modules          # Collections of reducers/constants/actions
-│   │   └── utils            # Redux-specific helpers
-│   ├── routes               # Application route definitions
-│   ├── static               # Static assets (not imported anywhere in source code)
+│   │   ├── modules          #reducers/constants/actions 都放在这里
+│   │   └── utils            # Redux-specific 工具类脚本目录
+│   ├── routes               # 应用程序的路由定义
+│   ├── static               # 静态资源目录 (not imported anywhere in source code)
 │   ├── styles               # Application-wide styles (generally settings)
 │   ├── views                # Components that live at a route
-│   └── main.js              # Application bootstrap and rendering
-└── tests                    # Unit tests
+│   └── main.js              # 整个应用程序的入口点
+└── tests                    # 单元测试
 ```
 
 ### Components vs. Views vs. Layouts
