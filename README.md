@@ -7,8 +7,8 @@ React Redux Starter Kit
 [![devDependency Status](https://david-dm.org/davezuko/react-redux-starter-kit/dev-status.svg)](https://david-dm.org/davezuko/react-redux-starter-kit#info=devDependencies)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-> ### Want Semicolons?
-> After installing npm dependencies, open `.eslintrc`, change the `semi` rule from `never` to `always`, and then run `npm run lint:fix` -- Easy as that! Alternatively, use the same npm script after installing and extending your preferred ESLint configuration; it's easy to customize the project's code style to suit your team's needs. See, we can coexist peacefully.
+> ### 让eslint检测分号?
+> 运行npm install之后, 打开 `.eslintrc`, 修改 `semi` 规则 将 `never` 改成 `always`, 然后运行 `npm run lint:fix` -- 就是这么简单! 另外, 你可以按照上面的方法,扩展你喜欢的 ESLint 配置; 自定义项目代码风格满足你的团队需求.
 
 This starter kit is designed to get you up and running with a bunch of awesome new front-end technologies, all on top of a configurable, feature-rich webpack build system that's already setup to provide hot reloading, CSS modules with Sass support, unit testing, code coverage reports, bundle splitting, and a whole lot more.
 
