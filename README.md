@@ -73,10 +73,10 @@ Features
   * Uses [Standard Style](https://github.com/feross/standard) by default, but you're welcome to change this!
   * Includes separate test-specific `.eslintrc` to support chai assertions
 
-Getting Started
+如何开始
 ---------------
 
-Just clone the repo and install the necessary node modules:
+克隆项目安装node模块:
 
 ```shell
 $ git clone https://github.com/davezuko/react-redux-starter-kit.git
@@ -85,10 +85,10 @@ $ npm install                   # Install Node modules listed in ./package.json 
 $ npm start                     # Compile and launch
 ```
 
-Starting a New Project
+创建一个新项目
 ----------------------
 
-Want to start a new project without having to clean up the (tiny) example code? After cloning the repo and following the steps above, do the following:
+创建一个新项目按照下面的的步骤操作
 
 ```shell
 $ git checkout -b <your-project-name> new-project
@@ -97,23 +97,23 @@ $ npm run make:project          # Make your new project
 $ rm -rf .git && git init       # Start a new git repository
 ```
 
-Usage
+用法
 -----
 
 Before delving into the descriptions of each available npm script, here's a brief summary of the three which will most likely be your bread and butter:
 
-* Doing live development? Use `npm start` to spin up the dev server.
-* Compiling the application to disk? Use `npm run compile`.
-* Deploying to an environment? `npm run deploy` can help with that.
+* 实时开发? 运行 `npm start` 启动开发服务器.
+* 编译到 dist? 运行 `npm run compile`. 编译后的文件存放在 `dist`目录
+* 部署? `npm run deploy`.
 
-**NOTE:** This package makes use of [debug](https://github.com/visionmedia/debug) to improve your debugging experience. For convenience, all of messages are prefixed with `app:*`. If you'd like to to change what debug statements are displayed, you can override the `DEBUG` environment variable via the CLI (e.g. `DEBUG=app:* npm start`) or tweak the npm scripts (`betterScripts` in `package.json`).
+**注意:** This package makes use of [debug](https://github.com/visionmedia/debug) 调试体验. For convenience, all of messages are prefixed with `app:*`. If you'd like to to change what debug statements are displayed, you can override the `DEBUG` environment variable via the CLI (e.g. `DEBUG=app:* npm start`) or tweak the npm scripts (`betterScripts` in `package.json`).
 
-Great, now that introductions have been made here's everything in full detail:
+非常棒, 下面详细说明 `npm command` 的命令:
 
-* `npm start` - Spins up Koa server to serve your app at `localhost:3000`. HMR will be enabled in development.
-* `npm run compile` - Compiles the application to disk (`~/dist` by default).
-* `npm run dev` - Same as `npm start`, but enables nodemon to automatically restart the server when server-related code is changed.
-* `npm run dev:nw` - Same as `npm run dev`, but opens the redux devtools in a new window.
+* `npm start` - 启动一个`koa`服务器， `localhost:3000`. 在开发环境下会启用`热替换`.
+* `npm run compile` - 编译应用到`dist`目录 (`~/dist` by default).
+* `npm run dev` - 和 `npm start` 效果相同, 但是它会启动 `nodeman` 来监听服务器端的代码改动,并自动重启server
+* `npm run dev:nw` - 和 `npm run dev` 效果相同, 另外会在一个新窗口打开 `redux devtools`
 * `npm run dev:no-debug` - Same as `npm run dev` but disables redux devtools.
 * `npm run test` - Runs unit tests with Karma and generates a coverage report.
 * `npm run test:dev` - Runs Karma and watches for changes to re-run tests; does not generate coverage reports.
